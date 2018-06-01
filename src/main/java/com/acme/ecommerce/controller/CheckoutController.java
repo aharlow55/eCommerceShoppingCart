@@ -82,7 +82,7 @@ public class CheckoutController {
 			redirectAttributes.addFlashAttribute("flash", new FlashMessage("Must be between 5 and 10 characters", FlashMessage.Status.FAILURE));
 			redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.couponCode", bindingResult);
 			redirectAttributes.addFlashAttribute("couponCode", couponCode);
-			sCart.setPurchase(null);
+//			sCart.setPurchase(null);
 			return "redirect:/checkout/coupon";
 		}else {
 			sCart.setCouponCode(couponCode);
@@ -261,6 +261,7 @@ public class CheckoutController {
 		return "order_confirmation";
 	}
 
+
 	@RequestMapping(value = "/email", method = RequestMethod.GET)
 	public void getFile(HttpServletResponse response) {
 		// simulating an email receipt
@@ -304,6 +305,7 @@ public class CheckoutController {
 			} else {
 				logger.error("No purchases Found!");
 			}
+
 
 			//Order completed, reset in case user wants to order again
 			sCart.setCouponCode(null);

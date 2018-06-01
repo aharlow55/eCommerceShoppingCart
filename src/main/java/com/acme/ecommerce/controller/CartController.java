@@ -212,6 +212,7 @@ public class CartController {
 		}
 		redirectAttributes.addFlashAttribute("flash", new FlashMessage("Cart is now empty.", FlashMessage.Status.SUCCESS));
 
+
 		return redirect;
 	}
 	public static void addSubTotalToModel(Model model, ShoppingCart cart){
