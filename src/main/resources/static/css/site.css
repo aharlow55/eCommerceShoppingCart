@@ -235,6 +235,32 @@ strong {
 {
     display: inline;
 }
+/* flash messages on top of the page styling div*/
+.pagination.flash.failure {
+    background-color: lightcoral;
+	color: aliceblue;
+	position: relative;
+	font-weight: bold;
+}
+/* <p> inside: text message styling */
+.pagination.flash.failure p {
+    margin: 0px;
+    position: relative;
+    top: 13px;
+}
+/* successful flash messages on top of the page styling div*/
+.pagination.flash.success {
+	background-color: lightseagreen;
+	color: aliceblue;
+	position: relative;
+	font-weight: bold;
+}
+/* <p> inside: text message styling */
+.pagination.flash.success p {
+	margin: 0px;
+	position: relative;
+	top: 13px;
+}
 
 
 /* --- Single Item Product Styles --- */
@@ -369,6 +395,17 @@ strong {
 .subtotal strong {
 	color: #363a31;
 	font-weight: 700;
+}
+/* that is the subtotal value in the header, shown when subtotal is not null */
+header .subtotal strong span {
+	color: aliceblue;
+	font-weight: 700;
+}
+/* That is changed nav element with subtotal: moved up a bit: just for beauty*/
+nav.with-subtotal {
+	position: relative;
+	bottom: 53px;
+	padding: 0;
 }
 .checkout-footer {
 	padding: 35px 0 15px 0;
@@ -562,7 +599,7 @@ form .error-message {
 	position: relative;
 	color: #b50000;
 	top: 10px;
-	left: 0;
+	left: 0px;
 	font-weight: 700;
 	font-size: 14px;
 	float: left;

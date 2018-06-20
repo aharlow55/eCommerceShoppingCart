@@ -33,8 +33,8 @@
 				<a class="button-link" href="javascript:;" onclick="parentNode.submit();">Update</a>
 			</form>
 		</div>
-		<div class="subtotal">
-			Subtotal: <strong><span id="subtotal" th:text="${'$' + #numbers.formatDecimal(subTotal, 1, 2, 'POINT')}">$199.00</span></strong>
+		<div class="subTotal">
+			Subtotal: <strong><span id="subTotal" th:text="${'$' + #numbers.formatDecimal(subTotal, 1, 2, 'POINT')}">$199.00</span></strong>
 		</div>
 		<div class="checkout-footer">
 			<form id="emtpyCartForm" action="#" th:action="@{/cart/empty}" method="post">

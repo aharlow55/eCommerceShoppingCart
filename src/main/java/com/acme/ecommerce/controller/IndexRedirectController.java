@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import static com.acme.ecommerce.controller.WebConstants.REDIRECT_TO_BASE;
 
+
 @Controller
 public class IndexRedirectController {
 

@@ -30,7 +30,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import static com.acme.ecommerce.controller.WebConstants.*;
 
-
 @Controller
 @RequestMapping("/checkout")
 @Scope("request")

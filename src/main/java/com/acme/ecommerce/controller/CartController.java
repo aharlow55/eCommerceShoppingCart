@@ -29,6 +29,7 @@ import java.math.BigDecimal;
 
 import static com.acme.ecommerce.FlashMessage.Status.FAILURE;
 
+
 @Controller
 @RequestMapping("/cart")
 @Scope("request")
@@ -67,10 +68,33 @@ public class CartController {
 			logger.error("No purchases Found for session ID=" + session.getId());
 			return "redirect:/error";
 		}
-		CartController.addSubTotalToModel(model, sCart);
-
 		return "cart";
 	}
+
+//	@RequestMapping("")
+//	public String viewCart(Model model) {
+//		logger.debug("Getting Product List");
+//		logger.debug("Session ID = " + session.getId());
+//
+//		Purchase purchase = sCart.getPurchase();
+//		BigDecimal subTotal = new BigDecimal(0);
+//
+//		model.addAttribute("purchase", purchase);
+//		if (purchase != null) {
+//			for (ProductPurchase pp : purchase.getProductPurchases()) {
+//				logger.debug("cart has " + pp.getQuantity() + " of " + pp.getProduct().getName());
+//				subTotal = subTotal.add(pp.getProduct().getPrice().multiply(new BigDecimal(pp.getQuantity())));
+//			}
+//
+//			model.addAttribute("subTotal", subTotal);
+//		} else {
+//			logger.error("No purchases Found for session ID=" + session.getId());
+//			return "redirect:/error";
+//		}
+//		CartController.addSubTotalToModel(model, sCart);
+//
+//		return "cart";
+//	}
 
 	@RequestMapping(path="/add", method = RequestMethod.POST)
 	public RedirectView addToCart(@ModelAttribute(value="productId") long productId, @ModelAttribute(value="quantity") int quantity, RedirectAttributes redirectAttributes) throws Exception{
@@ -216,6 +240,7 @@ public class CartController {
 		return redirect;
 	}
 	public static void addSubTotalToModel(Model model, ShoppingCart cart){
+
 		BigDecimal subTotal = new BigDecimal(0);
 		if (cart.getPurchase() != null) {
 			for(ProductPurchase pp : cart.getPurchase().getProductPurchases()){
@@ -223,7 +248,9 @@ public class CartController {
 			}
 			model.addAttribute("cart", cart);
 			model.addAttribute("subTotal", subTotal);
+
 		}
+
 	}
 
 	@ExceptionHandler(InsufficientStockException.class)
